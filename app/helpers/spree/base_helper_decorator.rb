@@ -138,11 +138,11 @@ module Spree
 
     # There really isn't a Spree helper for product URLs?
     # Also, this is very ugly.
-    def sociable_image_url(image, escape = false)
-      unless /^(https?:)?\/\//i.match(image)
+    def sociable_image_url(image)
+      unless image =~ /^(https?:)?\/\//i
         image = spree.root_url.gsub(/\/$/, '') + image
       end
-      escape ? h(image) : image
+      image
     end
   end
 end

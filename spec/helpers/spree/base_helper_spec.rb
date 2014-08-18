@@ -20,24 +20,12 @@ describe Spree::BaseHelper do
 
   context '#sociable_image_url' do
     context 'builds non-prefixed image' do
-      it 'that is escaped' do
-        expect(helper.sociable_image_url(img_url)).to(
-          eql CGI.escape_html(img_url)
-        )
-      end
-
       it 'that is not escaped' do
         expect(helper.sociable_image_url(img_url)).to eql img_url
       end
     end
 
     context 'builds prefixed image' do
-      it 'that is escaped' do
-        expect(helper.sociable_image_url(img)).to(
-          eql CGI.escape_html(img_url)
-        )
-      end
-
       it 'that is not escaped' do
         expect(helper.sociable_image_url(img)).to eql img_url
       end
