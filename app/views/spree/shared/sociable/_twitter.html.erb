@@ -24,8 +24,8 @@
     class: 'twitter-share-button'
   }
 
-  options['data-count'] = 'none'  unless Spree::Config.twitter_show_count
-  options['data-size'] = 'large'  if Spree::Config.twitter_button_large
+  options['data-count'] = 'none' unless Spree::Config.twitter_show_count
+  options['data-size'] = 'large' if Spree::Config.twitter_button_large
 
   unless Spree::Config.twitter_name.blank?
     options['data-via'] = Spree::Config.twitter_name

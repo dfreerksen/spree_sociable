@@ -1,11 +1,11 @@
 module Spree
   module BaseHelper
     def sociable_share_types
-      return []  unless Spree::Config.social_share_enabled
+      return [] unless Spree::Config.social_share_enabled
 
       available = []
       %w(twitter facebook google_plus pinterest tumblr reddit).each do |type|
-        available << type  if Spree::Config["#{type}_share"]
+        available << type if Spree::Config["#{type}_share"]
       end
       available
     end
