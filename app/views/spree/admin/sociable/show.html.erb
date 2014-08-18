@@ -1,0 +1,24 @@
+<%= render 'spree/admin/shared/configuration_menu' %>
+
+<% content_for :page_title do %>
+  <%= Spree.t('sociable.admin.title.show') %>
+<% end %>
+
+<% content_for :page_actions do %>
+  <li><%= button_link_to Spree.t('sociable.admin.buttons.link_index'), admin_sociable_links_path, icon: 'forward' %></li>
+  <li><%= button_link_to Spree.t('sociable.admin.buttons.link_new'), new_admin_sociable_link_path, icon: 'plus' %></li>
+<% end %>
+
+<%= form_tag admin_sociable_path, :method => :put do %>
+  <div id="preferences" data-hook>
+    <fieldset class="general no-border-top">
+      <%= render 'form' %>
+
+      <div class="form-buttons filter-actions actions" data-hook="buttons">
+        <%= button Spree.t('actions.update'), 'refresh' %>
+        <span class="or"><%= Spree.t(:or) %></span>
+        <%= link_to_with_icon 'remove', Spree.t('actions.cancel'), admin_sociable_path, class: 'button' %>
+      </div>
+    </fieldset>
+  </div>
+<% end %>

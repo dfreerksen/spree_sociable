@@ -1,0 +1,27 @@
+ul.sociable {
+  margin: 0;
+  padding: 0;
+
+  &.product-detail { }
+
+  &.footer {
+    text-align: right;
+
+    li {
+      margin-left: 5px;
+      display: -moz-inline-stack;
+      display: inline-block;
+      vertical-align: middle;
+      zoom: 1;
+      *display: inline;
+
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+  }
+
+  li {
+    list-style-type: none;
+  }
+}

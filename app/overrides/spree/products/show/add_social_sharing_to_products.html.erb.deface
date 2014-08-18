@@ -1,0 +1,11 @@
+<!-- insert_after '[data-hook="product_properties"]' -->
+<% if sociable_share_types.count > 0 %>
+<div data-hook="sociable_sharing">
+  <h6 class="product-section-title"><%= Spree.t('sociable.detail.title') %></h6>
+  <ul class="sociable product-detail">
+    <% sociable_share_types.each do |type| %>
+    <li class="<%= type %>"><%= render partial: "spree/shared/sociable/#{type}", locals: { product: @product } %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>

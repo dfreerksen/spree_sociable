@@ -1,0 +1,28 @@
+<% content_for :head do %>
+  <!-- Reddit share -->
+  <script type="text/javascript">
+    reddit_url       = '<%= spree.product_url(@product) %>';
+    reddit_title     = '<%= @product.name %>';
+    reddit_newwindow = '1';
+  </script>
+<% end %>
+
+<%
+  style         = Spree::Config.reddit_style
+  is_buttonlite = style.start_with?('button')
+
+  if style.start_with?('button')
+    file = "static/button/#{style}"
+    type = ''
+  else
+    file = 'buttonlite'
+    type = "?i=#{style}"
+  end
+
+  options = {
+    type: 'text/javascript',
+    src:  "http://www.reddit.com/#{file}.js#{type}"
+  }
+%>
+
+<%= content_tag(:script, '', options) %>

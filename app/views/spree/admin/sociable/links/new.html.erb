@@ -1,0 +1,16 @@
+<%= render 'spree/admin/shared/configuration_menu' %>
+
+<% content_for :page_title do %>
+  <%= Spree.t('sociable.admin.title.new') %>
+<% end %>
+
+<% content_for :page_actions do %>
+  <li><%= link_to_with_icon 'arrow-left', Spree.t('sociable.admin.buttons.back_sociable'), admin_sociable_path, :class => 'button' %></li>
+  <li><%= link_to_with_icon 'arrow-left', Spree.t('sociable.admin.buttons.back_links'), admin_sociable_links_path, :class => 'button' %></li>
+<% end %>
+
+<%= render :partial => 'spree/shared/error_messages', :locals => { :target => @link } %>
+
+<%= form_for @link, :url => admin_sociable_links_path do |f| %>
+  <%= render 'form', :f => f %>
+<% end %>

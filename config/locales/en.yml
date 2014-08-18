@@ -1,0 +1,122 @@
+---
+en:
+  spree:
+    sociable:
+      sidebar: Sociable
+      detail:
+        title: Share with friends
+      admin:
+        title:
+          show: Social Networks
+          index: Social Links
+          new: New Social Link
+          edit: Edit Social Link
+        none: No social links have been added yet.
+        buttons:
+          back_sociable: Back To Social Networks
+          back_links: Back To Social Links
+          link_index: Social Links
+          link_new: New Social Link
+        headers:
+          icon: Icon
+          label: Label
+          url: URL
+        legends:
+          general: General Social Settings
+          share: Social Sharing Settings
+          links: Social Link Settings
+          twitter: Twitter
+          facebook: Facebook
+          google_plus: Google+
+          pinterest: Pinterest
+          tumblr: Tumblr
+          reddit: Reddit
+        label: &sociable_labels
+          social_share_enabled: Enable social sharing
+          social_links_enabled: Enable social links
+          social_links_size: Icon size
+          social_links_show_text: Show link text with icon
+          twitter_share: Enabled
+          twitter_show_count: Show count
+          twitter_button_large: Large button
+          twitter_name: Twitter Name
+          facebook_share: Enabled
+          facebook_app_id: App ID
+          facebook_layout: Layout
+          facebook_action: Action Type
+          facebook_show_faces: Show Friends' Faces
+          facebook_include_share: Include Share Button
+          google_plus_share: Enabled
+          google_plus_button_annotation: Annotation
+          google_plus_button_size: Size
+          pinterest_share: Enabled
+          pinterest_button_size: Size
+          pinterest_button_shape: Shape
+          pinterest_button_color: Color
+          pinterest_show_count: Show Pin Count
+          tumblr_share: Enabled
+          tumblr_button: Style
+          reddit_share: Enabled
+          reddit_style: Style
+          link_url: URL
+          link_label: Label
+          link_icon: Icon
+        options:
+          normal: Normal
+          2x: 2x
+          3x: 3x
+          4x: 4x
+          5x: 5x
+          squared: Squared
+          standard: Standard
+          box_count: Box Count
+          button_count: Button Count
+          button: Button
+          like: Like
+          recommend: Recommend
+          horizontal: Horizontal
+          vertical: Vertical
+          inline: Inline
+          none: None
+          small: Small
+          medium: Medium
+          large: Large
+          rectangular: Rectangular
+          circular: Circular
+          gray: Gray
+          red: Red
+          white: White
+          above: Above
+          beside: Beside
+          share1: Share_1
+          share1t: Share_1T
+          share2: Share_2
+          share2t: Share_2T
+          share3: Share_3
+          share3t: Share_3T
+          share4: Share4
+          share4t: Share4T
+          buttonlite0: buttonlite0
+          buttonlite1: buttonlite1
+          buttonlite2: buttonlite2
+          buttonlite3: buttonlite3
+          buttonlite4: buttonlite4
+          buttonlite5: buttonlite5
+          button1: button1
+          button2: button2
+          button3: button3
+        flash:
+          success:
+            share:
+              update: Social settings have been updated
+            link:
+              create: Social link has been created
+              update: Social link has been updated
+              delete: Social link has been deleted
+      share:
+        tumblr: Share on Tumblr
+
+  activerecord:
+    attributes:
+      spree/sociable:
+        <<: *sociable_labels

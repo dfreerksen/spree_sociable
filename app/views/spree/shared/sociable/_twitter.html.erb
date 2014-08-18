@@ -1,0 +1,35 @@
+<% content_for :head do %>
+  <!-- Twitter -->
+  <meta name="twitter:card" content="product" />
+  <meta name="twitter:domain" content="<%= spree.root_url %>">
+  <meta name="twitter:url" content="<%= spree.product_url(@product) %>" />
+  <meta name="twitter:title" content="<%= @product.name %>" />
+  <meta name="twitter:description" content="<%= @product.description %>" />
+  <% unless @product.images.empty? %>
+  <meta name="twitter:image:src" content="<%= sociable_image_url(@product.images.first.attachment.url) %>" />
+  <% end %>
+  <meta name="twitter:data1" content="<%= display_price(@product) %>">
+  <meta name="twitter:label1" content="Price">
+  <% unless Spree::Config.twitter_name.blank? %>
+  <meta name="twitter:site" content="@<%= Spree::Config.twitter_name %>" />
+  <meta name="twitter:creator" content="@<%= Spree::Config.twitter_name %>" />
+  <% end %>
+
+  <!-- Twitter share -->
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<% end %>
+
+<%
+  options = {
+    class: 'twitter-share-button'
+  }
+
+  options['data-count'] = 'none'  unless Spree::Config.twitter_show_count
+  options['data-size'] = 'large'  if Spree::Config.twitter_button_large
+
+  unless Spree::Config.twitter_name.blank?
+    options['data-via'] = Spree::Config.twitter_name
+  end
+%>
+
+<%= link_to('', 'https://twitter.com/share', options) %>

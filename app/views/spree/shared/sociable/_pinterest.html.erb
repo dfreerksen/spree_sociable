@@ -1,0 +1,52 @@
+<% content_for :head do %>
+  <!-- Pinterest share -->
+  <script type="text/javascript">
+  (function(d){
+    var f = d.getElementsByTagName('SCRIPT')[0], p = d.createElement('SCRIPT');
+    p.type = 'text/javascript';
+    p.async = true;
+    p.src = '//assets.pinterest.com/js/pinit.js';
+    f.parentNode.insertBefore(p, f);
+  }(document));
+  </script>
+<% end %>
+
+<%
+  shape = Spree::Config.pinterest_button_shape
+  color = shape == 'round' ? 'red' : Spree::Config.pinterest_button_color
+  size  = shape == 'round' ? 16 : Spree::Config.pinterest_button_size
+
+  image_src = [
+                '//assets.pinterest.com/images/pidgets/pinit',
+                'fg',
+                'en',
+                shape,
+                color,
+                "#{size}.png"
+              ].join('_')
+
+  image = tag(:img, src: image_src)
+
+  params = {
+    url:         spree.product_url(product),
+    media:       sociable_image_url(product.images.first.attachment.url),
+    description: product.description.html_safe
+  }
+
+  href = "http://pinterest.com/pin/create/button/?#{params.to_query}"
+
+  options = {
+    class: 'pin-it-button',
+    data:  {
+      'pin-do' => 'buttonPin'
+    }
+  }
+
+  options['data-pin-shape'] = shape  unless shape == 'rect'
+
+  if shape == 'rect'
+    options['data-pin-config'] = Spree::Config.pinterest_show_count
+  end
+%>
+
+<%= link_to image, href, options %>

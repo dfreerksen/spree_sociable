@@ -1,0 +1,29 @@
+<% content_for :head do %>
+  <!-- Google+ share -->
+  <script type="text/javascript">
+    (function() {
+      var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+      po.src = 'https://apis.google.com/js/platform.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+    })();
+  </script>
+<% end %>
+
+<%
+  annotation = Spree::Config.google_plus_button_annotation
+
+  options = {
+    class: 'g-plus',
+    data:  {
+      action: 'share'
+    }
+  }
+
+  options['data-annotation'] = annotation  unless 'inline' == annotation
+
+  unless 'vertical-bubble' == annotation
+    options['data-height'] = Spree::Config.google_plus_button_size
+  end
+%>
+
+<%= content_tag(:div, '', options) %>

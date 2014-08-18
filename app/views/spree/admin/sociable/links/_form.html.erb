@@ -1,0 +1,28 @@
+<fieldset data-hook="admin_sociable_links_form_fields" class="no-border-top">
+  <legend align="center"><%= Spree.t('sociable.admin.legends.links') %></legend>
+
+  <div class="row">
+    <div class="field">
+      <%= f.label :url, Spree.t('sociable.admin.label.link_url') %>
+      <%= f.url_field :url, :class => 'fullwidth' %>
+    </div>
+    <div class="field">
+      <%= f.label :label, Spree.t('sociable.admin.label.link_label') %>
+      <%= f.text_field :label, :class => 'fullwidth' %>
+    </div>
+    <div class="field">
+      <%= f.label :icon, Spree.t('sociable.admin.label.link_icon') %>
+      <%= f.select :icon, social_link_icon_values, {}, { :class => 'select2 fullwidth' } %>
+    </div>
+  </div>
+
+  <div class="form-buttons filter-actions actions" data-hook="buttons">
+    <% if f.object.id.nil? %>
+      <%= button Spree.t('actions.create'), 'refresh' %>
+    <% else %>
+      <%= button Spree.t('actions.update'), 'refresh' %>
+    <% end %>
+    <span class="or"><%= Spree.t(:or) %></span>
+    <%= link_to_with_icon 'remove', Spree.t('actions.cancel'), admin_sociable_links_path, class: 'button' %>
+  </div>
+</fieldset>

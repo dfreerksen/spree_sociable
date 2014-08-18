@@ -1,0 +1,172 @@
+<fieldset class="security no-border-bottom">
+  <legend align="center"><%= Spree.t('sociable.admin.legends.general') %></legend>
+
+  <div class="row">
+    <!-- Share settings -->
+    <div class="alpha six columns">
+      <div class="field">
+        <%= preference_field_tag(:social_share_enabled, Spree::Config.social_share_enabled, type: :boolean) %>
+        <%= label_tag(:social_share_enabled, Spree.t('sociable.admin.label.social_share_enabled')) %>
+      </div>
+      <div class="field">
+        <%= preference_field_tag(:social_links_enabled, Spree::Config.social_links_enabled, type: :boolean) %>
+        <%= label_tag(:social_links_enabled, Spree.t('sociable.admin.label.social_links_enabled')) %>
+      </div>
+    </div>
+    <!-- Link settings -->
+    <div class="alpha six columns">
+      <div class="field">
+        <%= preference_field_tag(:social_links_show_text, Spree::Config.social_links_show_text, type: :boolean) %>
+        <%= label_tag(:social_links_show_text, Spree.t('sociable.admin.label.social_links_show_text')) %>
+      </div>
+      <div class="field">
+        <%= label_tag(:social_links_size, Spree.t('sociable.admin.label.social_links_size')) %>
+        <%= select_tag(:social_links_size, options_for_select(social_links_size_values, Spree::Config.social_links_size), class: 'select2 fullwidth') %>
+      </div>
+    </div>
+  </div>
+</fieldset>
+
+
+<fieldset class="security no-border-bottom">
+  <legend align="center"><%= Spree.t('sociable.admin.legends.share') %></legend>
+
+  <div class="row">
+    <!-- Twitter -->
+    <div class="alpha six columns">
+      <fieldset class="security no-border-bottom">
+        <legend align="center"><%= Spree.t('sociable.admin.legends.twitter') %></legend>
+
+        <div class="field">
+          <%= preference_field_tag(:twitter_share, Spree::Config.twitter_share, type: :boolean) %>
+          <%= label_tag(:twitter_share, Spree.t('sociable.admin.label.twitter_share"')) %>
+        </div>
+        <div class="field">
+          <%= preference_field_tag(:twitter_show_count, Spree::Config.twitter_show_count, type: :boolean) %>
+          <%= label_tag(:twitter_show_count, Spree.t('sociable.admin.label.twitter_show_count')) %>
+        </div>
+        <div class="field">
+          <%= preference_field_tag(:twitter_button_large, Spree::Config.twitter_button_large, type: :boolean) %>
+          <%= label_tag(:twitter_button_large, Spree.t('sociable.admin.label.twitter_button_large')) %>
+        </div>
+        <div class="field">
+          <%= label_tag(:twitter_name, Spree.t('sociable.admin.label.twitter_name')) %>
+          <%= preference_field_tag(:twitter_name, Spree::Config.twitter_name, type: :string) %>
+        </div>
+      </fieldset>
+    </div>
+    <!-- Facebook -->
+    <div class="alpha six columns">
+      <fieldset class="security no-border-bottom">
+        <legend align="center"><%= Spree.t('sociable.admin.legends.facebook') %></legend>
+
+        <div class="field">
+          <%= preference_field_tag(:facebook_share, Spree::Config.facebook_share, type: :boolean) %>
+          <%= label_tag(:facebook_share, Spree.t('sociable.admin.label.facebook_share')) %>
+        </div>
+        <div class="field">
+          <%= label_tag(:facebook_app_id, Spree.t('sociable.admin.label.facebook_app_id')) %>
+          <%= preference_field_tag(:facebook_app_id, Spree::Config.facebook_app_id, type: :string) %>
+        </div>
+        <div class="field">
+          <%= label_tag(:facebook_layout, Spree.t('sociable.admin.label.facebook_layout')) %>
+          <%= select_tag(:facebook_layout, options_for_select(facebook_layout_values, Spree::Config.facebook_layout), class: 'select2 fullwidth') %>
+        </div>
+        <div class="field">
+          <%= label_tag(:facebook_action, Spree.t('sociable.admin.label.facebook_action')) %>
+          <%= select_tag(:facebook_action, options_for_select(facebook_action_values, Spree::Config.facebook_action), class: 'select2 fullwidth') %>
+        </div>
+        <div class="field">
+          <%= preference_field_tag(:facebook_show_faces, Spree::Config.facebook_show_faces, type: :boolean) %>
+          <%= label_tag(:facebook_show_faces, Spree.t('sociable.admin.label.facebook_show_faces')) %>
+        </div>
+        <div class="field">
+          <%= preference_field_tag(:facebook_include_share, Spree::Config.facebook_include_share, type: :boolean) %>
+          <%= label_tag(:facebook_include_share, Spree.t('sociable.admin.label.facebook_include_share')) %>
+        </div>
+      </fieldset>
+    </div>
+  </div>
+
+  <div class="row">
+    <!-- Google+ -->
+    <div class="alpha six columns">
+      <fieldset class="security no-border-bottom">
+        <legend align="center"><%= Spree.t('sociable.admin.legends.google_plus') %></legend>
+
+        <div class="field">
+          <%= preference_field_tag(:google_plus_share, Spree::Config.google_plus_share, type: :boolean) %>
+          <%= label_tag(:google_plus_share, Spree.t('sociable.admin.label.google_plus_share')) %>
+        </div>
+        <div class="field">
+          <%= label_tag(:google_plus_button_annotation, Spree.t('sociable.admin.label.google_plus_button_annotation')) %>
+          <%= select_tag(:google_plus_button_annotation, options_for_select(google_plus_button_annotation_values, Spree::Config.google_plus_button_annotation), class: 'select2 fullwidth') %>
+        </div>
+        <div class="field">
+          <%= label_tag(:google_plus_button_size, Spree.t('sociable.admin.label.google_plus_button_size')) %>
+          <%= select_tag(:google_plus_button_size, options_for_select(google_plus_button_size_values, Spree::Config.google_plus_button_size), class: 'select2 fullwidth') %>
+        </div>
+      </fieldset>
+    </div>
+    <!-- Pinterest -->
+    <div class="alpha six columns">
+      <fieldset class="security no-border-bottom">
+        <legend align="center"><%= Spree.t('sociable.admin.legends.pinterest') %></legend>
+
+        <div class="field">
+          <%= preference_field_tag(:pinterest_share, Spree::Config.pinterest_share, type: :boolean) %>
+          <%= label_tag(:pinterest_share, Spree.t('sociable.admin.label.pinterest_share')) %>
+        </div>
+        <div class="field">
+          <%= label_tag(:pinterest_button_size, Spree.t('sociable.admin.label.pinterest_button_size')) %>
+          <%= select_tag(:pinterest_button_size, options_for_select(pinterest_button_size_values, Spree::Config.pinterest_button_size), class: 'select2 fullwidth') %>
+        </div>
+        <div class="field">
+          <%= label_tag(:pinterest_button_shape, Spree.t('sociable.admin.label.pinterest_button_shape')) %>
+          <%= select_tag(:pinterest_button_shape, options_for_select(pinterest_button_shape_values, Spree::Config.pinterest_button_shape), class: 'select2 fullwidth') %>
+        </div>
+        <div class="field">
+          <%= label_tag(:pinterest_button_color, Spree.t('sociable.admin.label.pinterest_button_color')) %>
+          <%= select_tag(:pinterest_button_color, options_for_select(pinterest_button_color_values, Spree::Config.pinterest_button_color), class: 'select2 fullwidth') %>
+        </div>
+        <div class="field">
+          <%= label_tag(:pinterest_show_count, Spree.t('sociable.admin.label.pinterest_show_count')) %>
+          <%= select_tag(:pinterest_show_count, options_for_select(pinterest_show_count_values, Spree::Config.pinterest_show_count), class: 'select2 fullwidth') %>
+        </div>
+      </fieldset>
+    </div>
+  </div>
+
+  <div class="row">
+    <!-- Tumblr -->
+    <div class="alpha six columns">
+      <fieldset class="security no-border-bottom">
+        <legend align="center"><%= Spree.t('sociable.admin.legends.tumblr') %></legend>
+
+        <div class="field">
+          <%= preference_field_tag(:tumblr_share, Spree::Config.tumblr_share, type: :boolean) %>
+          <%= label_tag(:tumblr_share, Spree.t('sociable.admin.label.tumblr_share')) %>
+        </div>
+        <div class="field">
+          <%= label_tag(:tumblr_button, Spree.t('sociable.admin.label.tumblr_button"')) %>
+          <%= select_tag(:tumblr_button, options_for_select(tumblr_button_values, Spree::Config.tumblr_button), class: 'select2 fullwidth') %>
+        </div>
+      </fieldset>
+    </div>
+    <!-- Reddit -->
+    <div class="alpha six columns">
+      <fieldset class="security no-border-bottom">
+        <legend align="center"><%= Spree.t('sociable.admin.legends.reddit') %></legend>
+
+        <div class="field">
+          <%= preference_field_tag(:reddit_share, Spree::Config.reddit_share, type: :boolean) %>
+          <%= label_tag(:reddit_share, Spree.t('sociable.admin.label.reddit_share')) %>
+        </div>
+        <div class="field">
+          <%= label_tag(:reddit_style, Spree.t('sociable.admin.label.reddit_style')) %>
+          <%= select_tag(:reddit_style, options_for_select(reddit_style_values, Spree::Config.reddit_style), class: 'select2 fullwidth') %>
+        </div>
+      </fieldset>
+    </div>
+  </div>
+</fieldset>

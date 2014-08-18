@@ -1,0 +1,41 @@
+<% content_for :head do %>
+  <!-- Tumblr share -->
+  <script src="http://platform.tumblr.com/v1/share.js"></script>
+<% end %>
+
+<%
+  type  = Spree::Config.tumblr_button
+  image = "http://platform.tumblr.com/v1/share_#{type}.png"
+
+  if type.start_with?('1')
+    w = 81
+  elsif type.start_with?('2')
+    w = 61
+  elsif type.start_with?('3')
+    w = 129
+  else
+    w = 20
+  end
+
+  options = {
+    title: Spree.t('sociable.share.tumblr'),
+    style: [
+            'display:inline-block;',
+            'text-indent:-9999px;',
+            'overflow:hidden;',
+            "width:#{w}px;",
+            'height:20px;',
+            "background:url(#{image}) top left no-repeat transparent;"
+          ].join('')
+  }
+
+  params = {
+    url:         spree.product_url(product),
+    name:        product.name.html_safe,
+    description: product.description.html_safe
+  }
+
+  href = "http://www.tumblr.com/share/link?#{params.to_query}"
+%>
+
+<%= link_to Spree.t('sociable.share.tumblr'), href, options %>

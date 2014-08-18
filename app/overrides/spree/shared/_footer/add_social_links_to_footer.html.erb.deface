@@ -1,0 +1,10 @@
+<!-- insert_bottom '#footer-right' -->
+<% if Spree::Config.social_links_enabled %>
+<div data-hook="sociable_linking">
+  <ul class="sociable footer">
+    <% Spree::SocialLink.all.each do |link| %>
+    <%= sociable_footer_link(link) %>
+    <% end %>
+  </ul>
+</div>
+<% end %>
