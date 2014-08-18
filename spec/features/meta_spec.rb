@@ -7,7 +7,11 @@ feature 'META tags' do
   let(:facebook)     { '//meta[@property="og:type" and @content="product"]' }
 
   context 'not available' do
-    before { Spree::Config.social_share_enabled = false }
+    before do
+      Spree::Config.social_share_enabled = false
+      Spree::Config.twitter_share        = false
+      Spree::Config.facebook_share       = false
+    end
 
     it 'for Twitter' do
       visit product_path
@@ -38,6 +42,3 @@ feature 'META tags' do
     end
   end
 end
-
-
-# have_no_selector(:xpath, "//input[@type='#{type}' and @name='#{name}']")

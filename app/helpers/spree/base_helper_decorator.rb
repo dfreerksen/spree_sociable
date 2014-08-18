@@ -3,11 +3,10 @@ module Spree
     def sociable_share_types
       return [] unless Spree::Config.social_share_enabled
 
-      available = []
-      %w(twitter facebook google_plus pinterest tumblr reddit).each do |type|
-        available << type if Spree::Config["#{type}_share"]
+      %w(twitter facebook google_plus pinterest tumblr reddit)
+        .each_with_object([]) do |type, available|
+          available << type if Spree::Config["#{type}_share"]
       end
-      available
     end
 
     def sociable_footer_link(item)
