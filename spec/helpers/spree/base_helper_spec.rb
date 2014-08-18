@@ -6,17 +6,13 @@ describe Spree::BaseHelper do
   let(:img_url) { "http://test.host#{img}" }
 
   context '#sociable_share_types' do
-    context 'sharing not enabled' do
-      before do
-        Spree::Config.social_share_enabled = false
-        Spree::Config.twitter_share        = false
-        Spree::Config.facebook_share       = false
-        Spree::Config.google_plus_share    = false
-        Spree::Config.pinterest_share      = false
-        Spree::Config.tumblr_share         = false
-        Spree::Config.reddit_share         = false
-      end
+    before do
+      Spree::Config.social_share_enabled = false
+      Spree::Config.twitter_share        = false
+      Spree::Config.facebook_share       = false
+    end
 
+    context 'sharing not enabled' do
       it 'should return empty array when not enabled' do
         expect(helper.sociable_share_types).to eql []
       end
@@ -25,13 +21,19 @@ describe Spree::BaseHelper do
     context 'sharing is enabled' do
       before { Spree::Config.social_share_enabled = true }
 
-      it "should contain nothing in the array" do
+      it 'should contain nothing in the array' do
         expect(helper.sociable_share_types).to eql []
       end
 
-      it 'should only contain `twitter` in the array' do
+      it 'should contain `twitter` in the array' do
         Spree::Config.twitter_share = true
         expect(helper.sociable_share_types).to eql ['twitter']
+      end
+
+      it 'should contain `twitter` and `facebook` in the array' do
+        Spree::Config.twitter_share  = true
+        Spree::Config.facebook_share = true
+        expect(helper.sociable_share_types).to eql ['twitter', 'facebook']
       end
     end
   end
