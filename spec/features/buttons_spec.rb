@@ -10,38 +10,38 @@ feature 'Action button in title bar' do
   let(:new_element)      { "[data-hook='toolbar'] a[href='#{new_path}']" }
   let(:index_element)    { "[data-hook='toolbar'] a[href='#{index_path}']" }
 
-  context 'on sociable#show' do
+  context 'sociable#show' do
     before { visit sociable_path }
 
-    it 'for linking to sociable/links#index' do
+    it 'links to sociable/links#index' do
       expect(page).to have_css(index_element)
     end
 
-    it 'for linking to sociable/links#new' do
+    it 'links to sociable/links#new' do
       expect(page).to have_css(new_element)
     end
   end
 
-  context 'on sociable/links#index' do
+  context 'sociable/links#index' do
     before { visit index_path }
 
-    it 'for linking to sociable#show' do
+    it 'links to sociable#show' do
       expect(page).to have_css(sociable_element)
     end
 
-    it 'for linking to sociable/links#new' do
+    it 'links to sociable/links#new' do
       expect(page).to have_css(new_element)
     end
   end
 
-  context 'on sociable/links#new' do
+  context 'sociable/links#new' do
     before { visit new_path }
 
-    it 'for linking to sociable#show' do
+    it 'links to sociable#show' do
       expect(page).to have_css(sociable_element)
     end
 
-    it 'for linking to sociable/links#index' do
+    it 'links to sociable/links#index' do
       expect(page).to have_css(index_element)
     end
   end

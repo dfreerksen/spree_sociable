@@ -10,27 +10,31 @@ describe Spree::BaseHelper do
       Spree::Config.social_share_enabled = false
       Spree::Config.twitter_share        = false
       Spree::Config.facebook_share       = false
+      Spree::Config.google_plus_share    = false
+      Spree::Config.pinterest_share      = false
+      Spree::Config.tumblr_share         = false
+      Spree::Config.reddit_share         = false
     end
 
-    context 'sharing not enabled' do
-      it 'should return empty array when not enabled' do
+    context 'when sharing is not enabled' do
+      it 'returns an empty array' do
         expect(helper.sociable_share_types).to eql []
       end
     end
 
-    context 'sharing is enabled' do
+    context 'when sharing is enabled' do
       before { Spree::Config.social_share_enabled = true }
 
-      it 'should contain nothing in the array' do
+      it 'returns an empty array' do
         expect(helper.sociable_share_types).to eql []
       end
 
-      it 'should contain `twitter` in the array' do
+      it 'contains `twitter` in the array' do
         Spree::Config.twitter_share = true
         expect(helper.sociable_share_types).to eql ['twitter']
       end
 
-      it 'should contain `twitter` and `facebook` in the array' do
+      it 'contains `twitter` and `facebook` in the array' do
         Spree::Config.twitter_share  = true
         Spree::Config.facebook_share = true
         expect(helper.sociable_share_types).to eql ['twitter', 'facebook']
@@ -44,7 +48,7 @@ describe Spree::BaseHelper do
       Spree::Config.social_links_show_text = true
     end
 
-    it 'should build li with social link' do
+    it 'builds li with social link' do
       expect(helper.sociable_footer_link(link)).to(
         have_link(link.label, link.url)
       )
@@ -52,16 +56,12 @@ describe Spree::BaseHelper do
   end
 
   context '#sociable_image_url' do
-    context 'builds non-prefixed image' do
-      it 'that is not escaped' do
-        expect(helper.sociable_image_url(img_url)).to eql img_url
-      end
+    it 'builds non-prefixed image' do
+      expect(helper.sociable_image_url(img_url)).to eql img_url
     end
 
-    context 'builds prefixed image' do
-      it 'that is not escaped' do
-        expect(helper.sociable_image_url(img)).to eql img_url
-      end
+    it 'builds prefixed image' do
+      expect(helper.sociable_image_url(img)).to eql img_url
     end
   end
 end

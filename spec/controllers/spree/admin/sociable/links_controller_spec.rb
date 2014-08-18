@@ -34,8 +34,8 @@ describe Spree::Admin::Sociable::LinksController do
   end
 
   context '#create' do
-    context 'with invalid params' do
-      it 'renders `new` when save fails' do
+    context 'fails with invalid params' do
+      it 'then renders `new`' do
         spree_post :create, social_link: invalid_item
         expect(response).to render_template(:new)
       end
@@ -47,7 +47,7 @@ describe Spree::Admin::Sociable::LinksController do
       end
     end
 
-    it 'successfully creates link' do
+    it 'creates link' do
       expect(Spree::SocialLink.count).to eq 0
       expect{spree_post :create, social_link: valid_item}.to(
         change(Spree::SocialLink, :count).by(1)
@@ -67,14 +67,14 @@ describe Spree::Admin::Sociable::LinksController do
   end
 
   context '#update' do
-    context 'with invalid params' do
-      it 'renders `edit` when save fails' do
+    context 'fails with invalid params' do
+      it 'then renders `edit`' do
         spree_post :update, id: link.id, social_link: invalid_item
         expect(response).to render_template(:edit)
       end
     end
 
-    it 'successfully updates item' do
+    it 'updates link item' do
       spree_post :update, id: link.id, social_link: valid_item
       expect(flash[:success]).to(
         eq Spree.t('sociable.admin.flash.success.link.update')
@@ -84,7 +84,7 @@ describe Spree::Admin::Sociable::LinksController do
   end
 
   context '#destroy' do
-    it 'successfully deletes item' do
+    it 'deletes item' do
       spree_post :destroy, id: link.id
       expect(flash[:success]).to(
         eq Spree.t('sociable.admin.flash.success.link.delete')

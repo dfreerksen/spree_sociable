@@ -6,14 +6,14 @@ describe Spree::Admin::SociableController do
   let(:sociable_path) { spree.admin_sociable_path }
 
   context '#show' do
-    it 'loads template' do
+    it 'loads `show` template' do
       spree_get :show
       expect(response).to render_template(:show)
     end
   end
 
   context '#update' do
-    it 'loads template' do
+    it 'redirects with flash after submit' do
       spree_post :update
       expect(flash[:success]).to(
         eq Spree.t('sociable.admin.flash.success.share.update')
