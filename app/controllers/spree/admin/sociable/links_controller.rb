@@ -37,13 +37,12 @@ module Spree
 
         def destroy
           @link.destroy
-          respond_to do |format|
-            format.html do
-              redirect_to admin_sociable_links_path, flash: {
-                success: Spree.t('sociable.admin.flash.success.link.delete')
-              }
+          flash[:success] = Spree.t('sociable.admin.flash.success.link.delete')
+          respond_with(@object) do |format|
+            format.html { redirect_to admin_sociable_links_path }
+            format.js do
+              render js: "window.location.href='#{admin_sociable_links_path}'"
             end
-            format.json { head :no_content }
           end
         end
 
