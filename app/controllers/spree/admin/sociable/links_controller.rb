@@ -4,6 +4,8 @@ module Spree
       class LinksController < BaseController
         before_action :set_link, only: [:edit, :update, :destroy]
 
+        helper Spree::Admin::SociableHelper
+
         def index
           @links = Spree::SocialLink.all
         end
