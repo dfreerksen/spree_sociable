@@ -1,0 +1,14 @@
+# Site settings
+title: Spree Sociable
+email: dfreerksen@gmail.com
+description: spree_sociable is an extension for Spree to display social links as social networking for users.
+baseurl: ''
+url: 'http://groundctrl.github.io/spree_sociable'
+
+# Build settings
+markdown: kramdown
+
+# SASS/SCSS
+sass:
+  sass_dir: _scss
+  style: :compressed
