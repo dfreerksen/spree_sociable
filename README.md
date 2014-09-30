@@ -1,3 +1,3 @@
-# spree_low_stock
+# spree_sociable
 
 [http://groundctrl.github.io/spree_sociable](http://groundctrl.github.io/spree_sociable)
