@@ -2,6 +2,7 @@
 
 Add social sharing buttons on product pages. Also add social network links to footer of every page.
 
+> More information at http://groundctrl.github.io/spree_sociable
 
 ## Installation
 
